@@ -8,25 +8,16 @@ import { Card } from '@/components/ui/card';
 const skills = [
   "Docker", "Kubernetes", "Terraform", "AWS", "Azure",
   "CI/CD", "Python", "JavaScript", "React", "Node.js",
-  "Security", "DevOps", "Cloud Architecture", "Monitoring"
+  "Security", "DevOps","Laravel", "Cloud Architecture", "Monitoring", 
+  "Angular"
 ];
 
 const certifications = [
   {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
+    name: "TOIEC",
+    issuer: "Pigier Bénin",
     year: "2023"
   },
-  {
-    name: "Certified Kubernetes Administrator",
-    issuer: "Cloud Native Computing Foundation",
-    year: "2023"
-  },
-  {
-    name: "HashiCorp Certified Terraform Associate",
-    issuer: "HashiCorp",
-    year: "2023"
-  }
 ];
 
 export function AboutSection() {
@@ -43,7 +34,7 @@ export function AboutSection() {
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">À propos de moi</h2>
             <p className="text-lg text-foreground/80">
-              Expert en DevOps et sécurité numérique avec plus de 8 ans d'expérience
+              Expert en DevOps et sécurité numérique avec plus de 2 ans d'expérience
               dans la conception et l'implémentation de solutions cloud sécurisées.
               Passionné par l'automatisation et l'optimisation des processus de
               développement.

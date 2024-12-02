@@ -24,7 +24,7 @@ export function Navbar() {
         <div className="flex h-16 justify-between">
           <div className="flex">
             <Link href="/" className="flex items-center font-bold">
-              Mon Numérique en Confiance
+              Djamal GANI
             </Link>
           </div>
 

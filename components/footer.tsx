@@ -8,20 +8,12 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="flex flex-col items-center md:items-start">
             <p className="text-sm text-foreground/60">
-              © 2024 Mon Numérique en Confiance. Tous droits réservés.
+              © 2024 GANI Djamal. Tous droits réservés.
             </p>
           </div>
           <div className="mt-4 flex space-x-6 md:mt-0">
             <Link
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/60 hover:text-foreground/80"
-            >
-              <Github className="h-6 w-6" />
-            </Link>
-            <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/djamal-yowe-gani"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/60 hover:text-foreground/80"
@@ -29,7 +21,7 @@ export function Footer() {
               <Linkedin className="h-6 w-6" />
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://x.com/DjamalDevops"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/60 hover:text-foreground/80"

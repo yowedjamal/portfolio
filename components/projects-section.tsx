@@ -9,29 +9,13 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: "Cloud Security Platform",
-    description: "Plateforme de sécurité cloud avec monitoring en temps réel et détection des menaces.",
+    title: "VisitBenin",
+    description: "Plateforme de référencement des sites touristiques au bénin avec intégration d'un chatbot",
     image: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2",
-    tags: ["AWS", "Python", "React", "Docker"],
+    tags: ["Angular", "Cohere", "Laravel"],
     github: "#",
-    demo: "#"
+    demo: "https://visitbenin.netlify.app"
   },
-  {
-    title: "DevOps Pipeline Automation",
-    description: "Solution d'automatisation CI/CD pour le déploiement continu d'applications.",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9",
-    tags: ["Jenkins", "Kubernetes", "Terraform"],
-    github: "#",
-    demo: "#"
-  },
-  {
-    title: "Infrastructure as Code Framework",
-    description: "Framework pour la gestion d'infrastructure cloud en tant que code.",
-    image: "https://images.unsplash.com/photo-1667372393913-64daa47b2794",
-    tags: ["Terraform", "AWS", "Python"],
-    github: "#",
-    demo: "#"
-  }
 ];
 
 export function ProjectsSection() {

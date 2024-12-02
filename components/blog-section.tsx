@@ -9,28 +9,22 @@ import Link from 'next/link';
 
 const posts = [
   {
-    title: "Sécuriser votre Infrastructure Cloud",
-    excerpt: "Guide complet pour sécuriser votre infrastructure cloud avec les meilleures pratiques.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
+    title: "L’Importance du Développement Web 🌐💻",
+    excerpt: "Le développement web n’est pas simplement une compétence technique, c’est une force motrice...",
+    image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*B3RSF7gIAaWLy2O_uk0FjA.jpeg",
     date: "2024-01-15",
     readTime: "10 min",
-    category: "Cloud Security"
+    category: "Dev web"
+    link: "https://medium.com/@ganidjamal04/limportance-du-développement-web-96816ef41fad"
   },
   {
-    title: "DevOps : Automatisation et Efficacité",
-    excerpt: "Comment mettre en place une pipeline DevOps efficace pour votre équipe.",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9",
-    date: "2024-01-10",
+    title: "Introduction au Développement Web",
+    excerpt: "Le développement web 🌐 est bien plus qu’une simple création de pages web. C’est l’art de transformer des idées ...",
+    image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*hnJ2hNRnpS87Sr_w",
+    date: "2023-11-24",
     readTime: "8 min",
-    category: "DevOps"
-  },
-  {
-    title: "Kubernetes en Production",
-    excerpt: "Bonnes pratiques pour déployer et gérer Kubernetes en production.",
-    image: "https://images.unsplash.com/photo-1667372393913-64daa47b2794",
-    date: "2024-01-05",
-    readTime: "12 min",
-    category: "Kubernetes"
+    category: "Dev Web",
+    link: "https://medium.com/@ganidjamal04/introduction-au-développement-web-b97887806b89",
   }
 ];
 
@@ -60,7 +54,7 @@ export function BlogSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Link href="#" className="group">
+              <Link href={post.link} className="group">
                 <Card className="overflow-hidden">
                   <div className="relative h-48">
                     <Image

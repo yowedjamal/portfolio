@@ -64,21 +64,21 @@ export function ContactSection() {
               <Mail className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <p className="text-foreground/60">contact@monnumerique.fr</p>
+                <p className="text-foreground/60">ganiyowedjamal@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <Phone className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Téléphone</h3>
-                <p className="text-foreground/60">+33 1 23 45 67 89</p>
+                <p className="text-foreground/60">+229 01 57 51 24 89</p>
               </div>
             </div>
             <div className="flex items-start space-x-4">
               <MapPin className="h-6 w-6 text-primary" />
               <div>
                 <h3 className="font-semibold">Adresse</h3>
-                <p className="text-foreground/60">Paris, France</p>
+                <p className="text-foreground/60">Cotonou, Bénin</p>
               </div>
             </div>
           </motion.div>

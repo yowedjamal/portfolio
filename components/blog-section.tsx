@@ -14,7 +14,7 @@ const posts = [
     image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*B3RSF7gIAaWLy2O_uk0FjA.jpeg",
     date: "2024-01-15",
     readTime: "10 min",
-    category: "Dev web"
+    category: "Dev web",
     link: "https://medium.com/@ganidjamal04/limportance-du-développement-web-96816ef41fad"
   },
   {
@@ -24,7 +24,7 @@ const posts = [
     date: "2023-11-24",
     readTime: "8 min",
     category: "Dev Web",
-    link: "https://medium.com/@ganidjamal04/introduction-au-développement-web-b97887806b89",
+    link: "https://medium.com/@ganidjamal04/introduction-au-développement-web-b97887806b89"
   }
 ];
 

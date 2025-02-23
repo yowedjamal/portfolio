@@ -129,8 +129,8 @@ export default ContactForm;
 const ContactInfo = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0}}
+      whileInView={{ opacity: 1}}
       transition={{ duration: 0.6 }}
       className="space-y-8"
     >
@@ -141,8 +141,8 @@ const ContactInfo = () => {
       ].map((item, index) => (
         <motion.div
           key={item.title}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1}}
           transition={{ duration: 0.6, delay: index * 0.1 }}
           className="group"
         >

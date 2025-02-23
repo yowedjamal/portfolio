@@ -62,7 +62,7 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-lg p-6">
+    <Card className="w-full  p-6">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <Input

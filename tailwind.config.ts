@@ -60,6 +60,17 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // Light theme - Flat pastel colors
+        "nav-gradient-from": "#95A5A6", // Flat gray
+        "nav-gradient-to": "#7F8C8D", // Darker flat gray
+        "nav-link": "#34495E", // Flat navy blue
+        "nav-link-hover": "#6C7A89", // Muted blue-gray
+
+        // Dark theme - Deep matte colors
+        "dark-nav-gradient-from": "#2C3E50", // Midnight blue
+        "dark-nav-gradient-to": "#34495E", // Navy blue
+        "dark-nav-link": "#BDC3C7", // Silver
+        "dark-nav-link-hover": "#95A5A6", // Light gray
       },
       keyframes: {
         'accordion-down': {

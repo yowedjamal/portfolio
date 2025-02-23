@@ -1,28 +1,34 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const slides = [
   {
     title: "Sécuriser vos données",
     subtitle: "Optimiser vos projets",
-    description: "Expert DevOps et spécialiste en confiance numérique, je transforme vos défis techniques en solutions robustes et sécurisées.",
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80",
+    description:
+      "Expert DevOps et spécialiste en confiance numérique, je transforme vos défis techniques en solutions robustes et sécurisées.",
+    image:
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80",
   },
   {
     title: "Architecture Cloud",
     subtitle: "Solutions Scalables",
-    description: "Conception et implémentation d'architectures cloud modernes et évolutives pour vos projets d'entreprise.",
-    image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80",
+    description:
+      "Conception et implémentation d'architectures cloud modernes et évolutives pour vos projets d'entreprise.",
+    image:
+      "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80",
   },
   {
     title: "DevOps & Automation",
     subtitle: "CI/CD Pipeline",
-    description: "Automatisation des processus de développement et déploiement pour une livraison continue et fiable.",
-    image: "https://images.unsplash.com/photo-1667372393913-64daa47b2794?auto=format&fit=crop&q=80",
+    description:
+      "Automatisation des processus de développement et déploiement pour une livraison continue et fiable.",
+    image:
+      "https://images.unsplash.com/photo-1667372393913-64daa47b2794?auto=format&fit=crop&q=80",
   },
 ];
 
@@ -32,7 +38,7 @@ export function HeroSlider() {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
@@ -51,7 +57,7 @@ export function HeroSlider() {
   };
 
   return (
-    <div className="relative h-[80vh] overflow-hidden">
+    <div className="relative h-[100vh] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -99,7 +105,7 @@ export function HeroSlider() {
               setCurrentSlide(index);
             }}
             className={`h-2 w-2 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+              index === currentSlide ? "bg-white w-8" : "bg-white/50"
             }`}
           />
         ))}

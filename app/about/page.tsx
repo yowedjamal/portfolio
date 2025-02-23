@@ -1,6 +1,6 @@
 'use client';
 
-import { AboutSection } from '@/components/about-section';
+import AboutSection from '@/components/about-section';
 import { motion } from 'framer-motion';
 
 export default function AboutPage() {

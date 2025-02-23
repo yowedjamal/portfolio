@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -79,4 +79,83 @@
   body {
     @apply bg-background text-foreground;
   }
+} */
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+
+    /* Ajustement des couleurs primary pour matcher le style mat */
+    --primary: 210 29% 29%; /* Basé sur #34495E */
+    --primary-foreground: 0 0% 98%;
+
+    /* Couleurs secondaires adaptées */
+    --secondary: 215 15% 65%; /* Basé sur #95A5A6 */
+    --secondary-foreground: 210 29% 29%;
+
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 25% 27%;
+
+    --accent: 210 15% 90%;
+    --accent-foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 215 25% 27%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 215 32% 10%; /* Plus sombre et mat */
+    --foreground: 210 15% 90%;
+
+    /* Ajustement des couleurs primary pour le thème sombre */
+    --primary: 210 29% 29%; /* Basé sur #2C3E50 */
+    --primary-foreground: 210 15% 90%;
+
+    /* Couleurs secondaires adaptées pour le dark mode */
+    --secondary: 215 15% 26%;
+    --secondary-foreground: 210 15% 90%;
+
+    --muted: 215 32% 17%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 215 32% 17%;
+    --accent-foreground: 210 15% 90%;
+
+    --card: 215 32% 10%;
+    --card-foreground: 210 15% 90%;
+
+    --popover: 215 32% 10%;
+    --popover-foreground: 210 15% 90%;
+
+    --border: 215 32% 17%;
+    --input: 215 32% 17%;
+    --ring: 216 15% 65%;
+  }
 }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+

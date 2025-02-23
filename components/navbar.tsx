@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <motion.nav
       className={cn(
-        "fixed bottom-2 z-50 w-[95%] md:w-[60%] lg:w-[50%]",
+        "fixed bottom-2 z-50 w-[95vw] md:w-[60vw] lg:w-[50vw]",
         "left-[50%] transform -translate-x-[50%]",
         "bg-gradient-to-r from-nav-gradient-from to-nav-gradient-to dark:from-dark-nav-gradient-from dark:to-dark-nav-gradient-to",
         "rounded-lg shadow-lg gradient-animate",

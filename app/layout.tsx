@@ -33,19 +33,20 @@
 //   );
 // }
 
-import type React from "react"
-import "./globals.css"
-import "./animation.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/footer"
+import type React from "react";
+import "./globals.css";
+import "./animation.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { Loader } from "@/components/loader";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://djamal.site"), // À remplacer par votre domaine réel
+  metadataBase: new URL("https://djamal.site"),
   title: {
     default: "Djamal GANI | Home",
     template: "%s | Djamal GANI",
@@ -92,7 +93,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Djamal GANI | Portfolio",
     description: "Expert en développement et sécurité numérique",
-    images: ["https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80"],
+    images: [
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80",
+    ],
   },
   robots: {
     index: true,
@@ -105,7 +108,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-}
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -130,13 +133,16 @@ const jsonLd = {
     name: "Portfolio de Djamal GANI",
     url: "https://djamal.site",
   },
-  sameAs: ["https://linkedin.com/in/djamal-yowe-gani", "https://github.com/yowedjamal"],
-}
+  sameAs: [
+    "https://linkedin.com/in/djamal-yowe-gani",
+    "https://github.com/yowedjamal",
+  ],
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="fr" suppressHydrationWarning className="scroll-smooth">
@@ -145,10 +151,14 @@ export default function RootLayout({
         <link rel="alternate" href="https://djamal.site" hrefLang="fr-FR" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#ffffff" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Loader />
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
@@ -157,5 +167,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

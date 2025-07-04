@@ -7,28 +7,28 @@ import { Button } from "@/components/ui/button";
 
 const slides = [
   {
-    title: "Sécuriser vos données",
-    subtitle: "Optimiser vos projets",
+    title: "Signature Électronique",
+    subtitle: "Sécurité Documentaire",
     description:
-      "Expert DevOps et spécialiste en confiance numérique, je transforme vos défis techniques en solutions robustes et sécurisées.",
+      "Développeur spécialisé en signature électronique et VDS (Visible Digital Seal). Je conçois des solutions sécurisées pour la validation et l'authentification de documents conformes aux normes internationales.",
     image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80",
+      "/images/visitbenin.png",
   },
   {
-    title: "Architecture Cloud",
-    subtitle: "Solutions Scalables",
+    title: "Architecture SaaS",
+    subtitle: "Solutions Modulaires",
     description:
-      "Conception et implémentation d'architectures cloud modernes et évolutives pour vos projets d'entreprise.",
+      "Expert en développement d'APIs robustes et de plateformes SaaS modulaires. De la gestion de salle de sport à l'e-commerce multi-shops, je crée des solutions adaptées à vos besoins métier.",
     image:
-      "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?auto=format&fit=crop&q=80",
+      "/images/incubator.png",
   },
   {
-    title: "DevOps & Automation",
-    subtitle: "CI/CD Pipeline",
+    title: "Fullstack Development",
+    subtitle: "Laravel • Spring Boot • Angular",
     description:
-      "Automatisation des processus de développement et déploiement pour une livraison continue et fiable.",
+      "Développeur fullstack avec 3+ ans d'expérience en Laravel, Spring Boot, Django, Angular, Next.js et Flutter. Je transforme vos idées en applications performantes et évolutives.",
     image:
-      "https://images.unsplash.com/photo-1667372393913-64daa47b2794?auto=format&fit=crop&q=80",
+      "/images/nusato.png",
   },
 ];
 
@@ -87,9 +87,46 @@ export function HeroSlider() {
                 <h1 className="mt-2 text-5xl font-bold tracking-tight sm:text-6xl">
                   {slides[currentSlide].title}
                 </h1>
-                <p className="mt-6 text-xl leading-8 text-gray-300 max-w-2xl mx-auto">
+                <p className="mt-6 text-xl leading-8 text-gray-300 max-w-3xl mx-auto">
                   {slides[currentSlide].description}
                 </p>
+                
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center"
+                >
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/80 text-primary-foreground px-8 py-3 text-lg font-semibold"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Démarrer un projet
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="border-white/30 text-white hover:bg-white/10 px-8 py-3 text-lg font-semibold"
+                    onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Voir mes réalisations
+                  </Button>
+                </motion.div>
+
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                  className="mt-12 text-center"
+                >
+                  <p className="text-gray-300 text-lg mb-2">Disponible pour des missions remote</p>
+                  <div className="flex justify-center items-center gap-6 text-sm text-gray-400">
+                    <span>📍 Abomey-Calavi, Bénin</span>
+                    <span>📧 yowedjamal@gmail.com</span>
+                    <span>📱 +229 01 57 51 24 89</span>
+                  </div>
+                </motion.div>
               </motion.div>
             </div>
           </div>

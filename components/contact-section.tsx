@@ -135,7 +135,7 @@ const ContactInfo = () => {
       className="space-y-8"
     >
       {[
-        { icon: Mail, title: "Email", value: "contact@djamal.site" },
+        { icon: Mail, title: "Email", value: "yowedjamal@gmail.com" },
         { icon: Phone, title: "Téléphone", value: "+229 01 57 51 24 89" },
         { icon: MapPin, title: "Adresse", value: "Cotonou, Bénin" },
       ].map((item, index) => (
@@ -166,7 +166,7 @@ const ContactInfo = () => {
 
 export function ContactSection() {
   return (
-    <div className="relative">
+    <div id="contact" className="relative">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40">
         <div
@@ -190,7 +190,7 @@ export function ContactSection() {
           >
             <h2 className="text-4xl font-bold">Contact</h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              N'hésitez pas à me contacter pour discuter de vos projets.
+              N&apos;hésitez pas à me contacter pour discuter de vos projets.
             </p>
           </motion.div>
 

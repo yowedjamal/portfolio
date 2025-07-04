@@ -22,7 +22,7 @@ export function HeadBar() {
       <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="items-center md:items-start hidden md:flex">
-              <Mail className="h-6 w-6 mr-2" /><a href="mailto:contact@djamal.site" className="mr-2"> contact@djamal.site</a>
+              <Mail className="h-6 w-6 mr-2" /><a href="mailto:yowedjamal@gmail.com" className="mr-2"> yowedjamal@gmail.com</a>
               <Phone className="h-6 w-6 mr-2" /><a href="tel:+2290157512489"> +229 01-57-51-24-89</a>
           </div>
           <div className="flex mt-4 space-x-6 md:mt-0">

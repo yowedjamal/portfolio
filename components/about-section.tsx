@@ -33,34 +33,68 @@ const AboutSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
 
   const skills = [
+    "Laravel 🐘",
+    "Spring Boot ☕",
+    "Django 🐍",
+    "Angular ⚛️",
+    "Next.js ⚡",
+    "Flutter 📱",
+    "Node.js 🟢",
+    "PostgreSQL 🐘",
+    "Firebase 🔥",
     "Docker 🐳",
-    "Kubernetes ⚓",
-    "AWS ☁️",
-    "Python 🐍",
-    "React ⚛️",
-    "Security 🔒",
-    "DevOps 🔄",
-    "Cloud Architecture 🏗️"
+    "Git 🔧",
+    "API Design 🛠️"
   ];
 
-  const commands = ["whoami", "ls skills", "cat certifications.txt"];
+  const commands = ["whoami", "ls skills", "cat experience.txt", "cat achievements.txt"];
 
   const getCommandOutput = (cmd: string) => {
     switch (cmd) {
       case "whoami":
         return `
-> Expert DevOps et Sécurité Numérique
-> 3 ans d'expérience
-> Passionné par l'automatisation
-> Spécialiste Cloud & CI/CD`;
+> Software Engineer | Backend & Fullstack Developer
+> API & SaaS Architect | Web Signature Specialist
+> 3+ ans d'expérience en développement
+> Spécialiste en signature électronique & VDS
+> Expert en solutions SaaS modulaires`;
       case "ls skills":
         return skills.join("\n");
-      case "cat certifications.txt":
+      case "cat experience.txt":
         return `
-TOIEC (2023)
-└── Score: B1*
-└── Issuer: Pigier Bénin
-└── Status: Certified 🏆`;
+🏆 NASA Space Apps Challenge 2023 (Bénin)
+└── 2e place nationale
+└── Solution technologique ouverte et impactante
+
+🎓 Diplôme National en Développement Logiciel
+└── PIGIER Bénin (2020-2023)
+└── Spécialisation en solutions SaaS
+
+🌍 Localisation: Abomey-Calavi, Bénin (remote EMEA)
+📧 Email: yowedjamal@gmail.com
+📱 Téléphone: +229 01 57 51 24 89`;
+      case "cat achievements.txt":
+        return `
+🔒 Signature & Sécurité Documentaire
+└── Driver Spring Boot pour signature PDF
+└── Microservice gestion champs PDF
+└── Interface Angular + Laravel
+└── Intégration Keycloak SSO
+
+📄 Visible Digital Seal (VDS)
+└── VDS generator API Django (normes ICAO)
+└── App Flutter vérification VDS
+└── Système validation manifeste XML
+
+📦 Multi-shop platform (Nusato)
+└── Architecture eCommerce Next.js + Firebase
+└── Personnalisation par boutique
+└── Automatisation Telegram Bot
+
+📊 SaaS GymBoard
+└── Gestion salle de sport QR Code
+└── Multi-filiales, suivi coachs/clients
+└── Tableaux de bord temps réel`;
       default:
         return "Command not found";
     }
@@ -98,9 +132,9 @@ TOIEC (2023)
 
   return (
     <div
+      id="about"
       className={cn(
         "min-h-screen py-20 relative overflow-hidden",
-        "bg-gradient-to-b from-background to-background/95"
       )}
     >
       {/* Animated background grid */}
@@ -116,8 +150,7 @@ TOIEC (2023)
 
       <motion.div
         ref={terminalRef}
-        style={{ y, opacity }}
-        className="max-w-4xl mx-auto px-4"
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
       >
         <div
           className={cn(
@@ -185,7 +218,7 @@ TOIEC (2023)
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           {skills.map((skill) => (
             <AnimatedSkillBadge key={skill} skill={skill} />

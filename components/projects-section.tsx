@@ -13,13 +13,18 @@ const PLACEHOLDER_IMAGES = {
   agency: "/images/aas.png",
   frozen: "/images/congelato.png",
   incubator: "/images/incubator.png",
+  stockflow: "/images/stockflow.png",
+  cvbuilder: "/images/cvbuilder.png",
+  checkit: "/images/checkit.png",
+  nusato: "/images/nusato.png",
+
 }
 
 const projects = [
   {
     title: "VisitBenin",
     description:
-      "Plateforme de référencement des sites touristiques au bénin avec intégration d'un chatbot pour une expérience utilisateur interactive et personnalisée.",
+      "Plateforme touristique avec chatbot intégré pour découvrir les sites du Bénin, réserver et interagir de façon personnalisée.",
     image: PLACEHOLDER_IMAGES.visitbenin,
     tags: ["Angular", "Cohere", "Laravel"],
     github: "#",
@@ -28,8 +33,8 @@ const projects = [
   {
     title: "MultiServices Agency",
     description:
-      "Site vitrine moderne pour une agence multiservices spécialisée dans l'immobilier, la formation et la communication. Présentation détaillée des services et informations clés de l'agence.",
-    image: PLACEHOLDER_IMAGES.agency, // Image à placer dans public/images/
+      "Site vitrine pour une agence spécialisée en immobilier, communication et formation avec une présentation élégante des services.",
+    image: PLACEHOLDER_IMAGES.agency,
     tags: ["Next.js", "Tailwind CSS", "TypeScript"],
     github: "#",
     demo: "https://aas.djamal.site",
@@ -37,8 +42,8 @@ const projects = [
   {
     title: "FrozenDelights",
     description:
-      "Site vitrine élégant pour une boutique de produits surgelés, mettant en valeur les produits et l'histoire de l'entreprise à travers une interface utilisateur intuitive.",
-    image: PLACEHOLDER_IMAGES.frozen, // Image à placer dans public/images/
+      "Interface épurée pour une boutique de surgelés avec storytelling visuel et mise en avant des produits.",
+    image: PLACEHOLDER_IMAGES.frozen,
     tags: ["React", "Styled Components", "Node.js"],
     github: "#",
     demo: "https://congelato.djamal.site",
@@ -46,13 +51,49 @@ const projects = [
   {
     title: "TechIncubator",
     description:
-      "Plateforme de présentation d'un incubateur technologique d'une école, présentant les programmes, les startups incubées et les opportunités de mentorat.",
-    image: PLACEHOLDER_IMAGES.incubator, // Image à placer dans public/images/
+      "Plateforme dédiée à un incubateur scolaire, mettant en valeur les startups, les mentors et les programmes proposés.",
+    image: PLACEHOLDER_IMAGES.incubator,
     tags: ["Next.js", "Framer Motion", "Prisma"],
     github: "#",
     demo: "https://incubator.djamal.site",
   },
-]
+  {
+    title: "StockFlow",
+    description:
+      "Mini app intuitive de gestion de stock pensée pour les petits commerçants. Suivi facile des produits, clients, entrées et sorties.",
+    image: PLACEHOLDER_IMAGES.stockflow,
+    tags: ["React", "Tailwind CSS", "Firebase"],
+    github: "#",
+    demo: "https://stockflow-bj.vercel.app",
+  },
+  {
+    title: "Nusato",
+    description:
+      "Marketplace modulaire avec shops autonomes connectés à Google Sheets. Notifications automatisées via Telegram et WhatsApp, et gestion des commandes sans back-office complexe.",
+    image: PLACEHOLDER_IMAGES.nusato,
+    tags: ["Next.js", "Google Sheets", "Telegram API", "WhatsApp"],
+    github: "#",
+    demo: "https://nusato.djamal.site",
+  },
+  {
+    title: "CheckIt Africa",
+    description:
+      "Site vitrine d’une agence africaine de test logiciel. Présentation des packs de tests, reporting structuré, positionnement orienté qualité produit.",
+    image: PLACEHOLDER_IMAGES.checkit,
+    tags: ["Next.js", "Tailwind CSS", "ShadCN/UI"],
+    github: "#",
+    demo: "https://checkit.djamal.site",
+  },
+  {
+    title: "Smart CV Builder",
+    description:
+      "Générateur de CV professionnel à partir d’objets JSON. Design moderne, compatible ATS, prêt à l’export et personnalisable.",
+    image: PLACEHOLDER_IMAGES.cvbuilder,
+    tags: ["React", "Tailwind CSS", "JSON Schema"],
+    github: "#",
+    demo: "https://cvbuilder.djamal.site",
+  }
+];
 
 const HologramProject = ({ project, index }: any) => {
   const [isExpanded, setIsExpanded] = useState(false)

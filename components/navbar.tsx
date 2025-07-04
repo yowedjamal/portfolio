@@ -54,12 +54,12 @@ export function Navbar() {
                   className={cn(
                     "nav-item rounded-md px-2 py-2 block",
                     "text-sm font-medium",
-                    "bg-white/10 dark:bg-black/10",
+                    "bg-white/20 dark:bg-black/10",
                     "text-white dark:text-white",
                     "backdrop-blur-lg",
                     "border border-white/20 dark:border-white/10",
                     "transition-all duration-200",
-                    "hover:bg-white/20 dark:hover:bg-white/20",
+                    "hover:bg-white/30 dark:hover:bg-white/20",
                     "hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]",
                   )}
                 >
@@ -76,7 +76,7 @@ export function Navbar() {
                 className={cn(
                   "ml-2",
                   "text-white dark:text-white",
-                  "hover:bg-white/20 dark:hover:bg-white/20",
+                  "hover:bg-white/30 dark:hover:bg-white/20",
                   "border border-white/20 dark:border-white/10",
                   "backdrop-blur-lg",
                 )}
@@ -96,7 +96,7 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className={cn(
                 "text-white dark:text-white",
-                "hover:bg-white/20 dark:hover:bg-white/20",
+                "hover:bg-white/30 dark:hover:bg-white/20",
                 "border border-white/20 dark:border-white/10",
               )}
             >
@@ -146,7 +146,7 @@ export function Navbar() {
                       "block rounded-md px-4 py-2",
                       "text-base font-medium",
                       "text-white dark:text-white",
-                      "hover:bg-white/20 dark:hover:bg-white/20",
+                      "hover:bg-white/30 dark:hover:bg-white/20",
                       "transition-colors",
                     )}
                     onClick={() => setIsOpen(false)}
@@ -167,7 +167,7 @@ export function Navbar() {
                   className={cn(
                     "w-full justify-start mt-2",
                     "text-white dark:text-white",
-                    "hover:bg-white/20 dark:hover:bg-white/20",
+                    "hover:bg-white/30 dark:hover:bg-white/20",
                   )}
                 >
                   <Sun className="mr-2 h-5 w-5" />

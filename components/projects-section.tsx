@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink, Maximize2, MinusCircle } from "lucide-react"
-import { OptimizedImage } from "@/components/ui/optimized-image"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
 
 const PLACEHOLDER_IMAGES = {
@@ -143,13 +143,10 @@ const HologramProject = ({ project, index }: any) => {
           }}
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
         >
-          <OptimizedImage
+          <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
             fill
-            width={800}
-            height={600}
-            priority={index < 3}
             className={cn("object-cover mix-blend-luminosity", "opacity-40 dark:opacity-30")}
           />
         </motion.div>
@@ -257,24 +254,17 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h1
+          <h2
             className={cn(
-              "text-4xl font-bold mb-4",
+              "text-4xl font-bold",
               "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent",
             )}
           >
-            Portfolio de Projets
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Découvrez mes réalisations en développement web, DevOps et sécurité numérique. 
-            Chaque projet reflète mon expertise technique et ma passion pour l&apos;innovation digitale, 
-            allant des plateformes e-commerce aux solutions d&apos;infrastructure cloud.
+            Projets Réalisés
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Découvrez mes dernières réalisations en matière de DevOps et sécurité.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2 justify-center">
-            <Badge variant="secondary">8+ Projets Livrés</Badge>
-            <Badge variant="secondary">Technologies Modernes</Badge>
-            <Badge variant="secondary">Solutions Innovantes</Badge>
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-auto">

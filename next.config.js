@@ -4,25 +4,19 @@ const createNextIntlPlugin = require('next-intl/plugin');
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig = {
-  images: {
+  // output: 'export',
+  images: { 
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'miro.medium.com',
+        hostname: 'images.unsplash.com',
       },
-      {
-        protocol: 'https',
-        hostname: 'cdn.hashnode.com',
-      },
-      {
-        protocol: 'https', 
-        hostname: 'res.cloudinary.com',
-      }
     ],
   },
-  experimental: {
-    optimizePackageImports: ['next-intl']
-  }
-}
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
 
 module.exports = withNextIntl(nextConfig);

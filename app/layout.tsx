@@ -4,7 +4,7 @@ import "./animation.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar-new";
+import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Loader } from "@/components/loader";
 

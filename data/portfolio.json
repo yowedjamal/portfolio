@@ -1,0 +1,89 @@
+{
+  "projects": [
+    {
+      "id": "visitbenin",
+      "title": "VisitBenin",
+      "description": "Plateforme touristique dédiée à la promotion du Bénin. Interface moderne, guide interactif et système de réservation intégré.",
+      "longDescription": "VisitBenin est une plateforme web complète développée pour promouvoir le tourisme au Bénin. Le projet comprend un système de gestion de contenu dynamique, une carte interactive des destinations, un module de réservation en temps réel et une interface d'administration pour les guides touristiques.",
+      "image": "/images/visitbenin.png",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+      "github": "#",
+      "demo": "https://visitbenin.djamal.site",
+      "challenges": [
+        "Intégration d'une carte interactive avec géolocalisation",
+        "Système de réservation en temps réel",
+        "Optimisation SEO pour le tourisme local"
+      ],
+      "solutions": [
+        "Utilisation de Mapbox API pour la cartographie",
+        "WebSockets pour les réservations temps réel",
+        "Structure de données optimisée pour le SEO local"
+      ],
+      "results": [
+        "Augmentation de 40% des réservations touristiques",
+        "Interface utilisateur intuitive et responsive",
+        "Performance optimisée (90+ Lighthouse score)"
+      ],
+      "techDetails": {
+        "frontend": "Next.js avec TypeScript pour la sécurité du typage",
+        "backend": "API RESTful avec Prisma ORM",
+        "database": "PostgreSQL avec optimisations géospatiales",
+        "deployment": "Vercel avec CDN global"
+      }
+    },
+    {
+      "id": "nusato",
+      "title": "Nusato Marketplace",
+      "description": "Marketplace modulaire avec shops autonomes connectés à Google Sheets. Notifications automatisées via Telegram et WhatsApp.",
+      "longDescription": "Nusato est une solution marketplace innovante permettant aux commerçants de créer facilement leur boutique en ligne. Le système utilise Google Sheets comme base de données simplifiée et automatise les notifications via Telegram et WhatsApp.",
+      "image": "/images/nusato.png",
+      "tags": ["Next.js", "Google Sheets API", "Telegram Bot", "WhatsApp API"],
+      "github": "#",
+      "demo": "https://nusato.djamal.site",
+      "challenges": [
+        "Synchronisation en temps réel avec Google Sheets",
+        "Gestion multi-boutiques avec branding personnalisé",
+        "Automatisation des notifications cross-platform"
+      ],
+      "solutions": [
+        "Google Sheets API avec système de cache intelligent",
+        "Architecture modulaire avec thèmes dynamiques",
+        "Bot Telegram et intégration WhatsApp Business API"
+      ],
+      "results": [
+        "15+ boutiques actives sur la plateforme",
+        "Réduction de 70% du temps de mise en marché",
+        "Automatisation complète du processus de commande"
+      ]
+    },
+    {
+      "id": "stockflow",
+      "title": "StockFlow",
+      "description": "Application de gestion de stock intuitive pour petits commerçants. Suivi en temps réel des produits, clients et transactions.",
+      "longDescription": "StockFlow simplifie la gestion de stock pour les petites entreprises avec une interface moderne et des fonctionnalités essentielles : suivi des produits, gestion des clients, alertes de stock bas et rapports de vente.",
+      "image": "/images/stockflow.png",
+      "tags": ["React", "Firebase", "Material-UI", "PWA"],
+      "github": "#",
+      "demo": "https://stockflow-bj.vercel.app"
+    }
+  ],
+  "technologies": {
+    "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    "backend": ["Node.js", "Express", "Prisma", "Django", "Spring Boot"],
+    "database": ["PostgreSQL", "Firebase", "MongoDB"],
+    "devops": ["Docker", "Kubernetes", "AWS", "Google Cloud", "Vercel"],
+    "tools": ["Git", "VS Code", "Figma", "Postman", "Jira"]
+  },
+  "achievements": [
+    {
+      "title": "NASA Space Apps Challenge 2023",
+      "description": "2e place nationale au Bénin",
+      "impact": "Solution technologique ouverte et impactante"
+    },
+    {
+      "title": "Diplôme National en Développement Logiciel",
+      "description": "PIGIER Bénin (2020-2023)",
+      "impact": "Spécialisation en solutions SaaS"
+    }
+  ]
+}

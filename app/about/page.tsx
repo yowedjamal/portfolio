@@ -1,16 +1,17 @@
-'use client';
+import { Metadata } from 'next';
+import AboutPage from './about-page';
 
-import AboutSection from '@/components/about-section';
-import { motion } from 'framer-motion';
+export const metadata: Metadata = {
+  title: "À propos - Djamal GANI",
+  description: "Découvrez le parcours de Djamal GANI, expert DevOps et sécurité numérique. Spécialisé en Cloud Computing, Kubernetes, Docker et cybersécurité avec plus de 5 ans d'expérience.",
+  keywords: ["À propos", "DevOps Expert", "Sécurité numérique", "Cloud Computing", "Kubernetes", "Docker", "Cybersécurité", "Développement Full Stack"],
+  openGraph: {
+    title: "À propos - Djamal GANI",
+    description: "Expert DevOps et sécurité numérique avec plus de 5 ans d'expérience",
+    url: "https://djamal.site/about",
+  },
+};
 
-export default function AboutPage() {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <AboutSection />
-    </motion.div>
-  );
+export default function Page() {
+  return <AboutPage />;
 }

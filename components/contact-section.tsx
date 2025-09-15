@@ -5,29 +5,84 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
 import React, { useState } from 'react';
 
+// Déclaration pour Google Analytics
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface SubmitStatus {
+  success: boolean;
+  message: string;
+}
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({ success: false, message: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [cooldown, setCooldown] = useState(0);
 
-  const handleChange = (e:any) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) newErrors.name = 'Le nom est requis';
+    if (!formData.email.trim()) newErrors.email = 'L\'email est requis';
+    if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email invalide';
+    if (!formData.subject.trim()) newErrors.subject = 'Le sujet est requis';
+    if (!formData.message.trim()) newErrors.message = 'Le message est requis';
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    if (cooldown > 0) {
+      setSubmitStatus({
+        success: false,
+        message: `Veuillez attendre ${cooldown}s avant de renvoyer un message`
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus({ success: false, message: '' });
 
@@ -40,21 +95,43 @@ const ContactForm = () => {
         body: JSON.stringify(formData),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
 
-      if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message: 'Message sent successfully!'
+      setSubmitStatus({
+        success: true,
+        message: 'Message envoyé avec succès !'
+      });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Set cooldown
+      setCooldown(30);
+      const timer = setInterval(() => {
+        setCooldown(prev => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            return 0;
+          }
+          return prev - 1;
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error(data.message || 'Failed to send message');
+      }, 1000);
+
+      // Analytics tracking
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'contact_form_submit', {
+          event_category: 'engagement',
+          event_label: 'contact_form'
+        });
       }
-    } catch (error:any) {
+    } catch (error) {
+      console.error('Contact form error:', error);
       setSubmitStatus({
         success: false,
-        message: error.message || 'An error occurred while sending the message'
+        message: error instanceof Error ? error.message : 'Une erreur inattendue est survenue'
       });
     } finally {
       setIsSubmitting(false);
@@ -62,62 +139,118 @@ const ContactForm = () => {
   };
 
   return (
-    <Card className="w-full  p-6">
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <Card className="w-full p-6">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Messages de statut */}
+        {submitStatus.success && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="p-4 bg-green-50 border border-green-200 rounded-lg"
+          >
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              <span className="text-green-800">{submitStatus.message}</span>
+            </div>
+          </motion.div>
+        )}
+
+        {submitStatus.message && !submitStatus.success && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="p-4 bg-red-50 border border-red-200 rounded-lg"
+          >
+            <span className="text-red-800">{submitStatus.message}</span>
+          </motion.div>
+        )}
+
         <div className="space-y-2">
           <Input
             name="name"
-            placeholder="Your Name"
+            placeholder="Votre nom"
             value={formData.name}
             onChange={handleChange}
             required
+            aria-label="Nom complet"
+            aria-describedby={errors.name ? "name-error" : undefined}
+            className={errors.name ? "border-red-500" : ""}
           />
+          {errors.name && (
+            <span id="name-error" className="text-red-500 text-sm" role="alert">
+              {errors.name}
+            </span>
+          )}
         </div>
 
         <div className="space-y-2">
           <Input
             name="email"
             type="email"
-            placeholder="Your Email"
+            placeholder="Votre email"
             value={formData.email}
             onChange={handleChange}
             required
+            aria-label="Adresse email"
+            aria-describedby={errors.email ? "email-error" : undefined}
+            className={errors.email ? "border-red-500" : ""}
           />
+          {errors.email && (
+            <span id="email-error" className="text-red-500 text-sm" role="alert">
+              {errors.email}
+            </span>
+          )}
         </div>
 
         <div className="space-y-2">
           <Input
             name="subject"
-            placeholder="Subject"
+            placeholder="Sujet"
             value={formData.subject}
             onChange={handleChange}
             required
+            aria-label="Sujet du message"
+            aria-describedby={errors.subject ? "subject-error" : undefined}
+            className={errors.subject ? "border-red-500" : ""}
           />
+          {errors.subject && (
+            <span id="subject-error" className="text-red-500 text-sm" role="alert">
+              {errors.subject}
+            </span>
+          )}
         </div>
 
         <div className="space-y-2">
           <Textarea
             name="message"
-            placeholder="Your Message"
+            placeholder="Votre message"
             value={formData.message}
             onChange={handleChange}
+            rows={6}
             required
-            className="min-h-[120px]"
+            aria-label="Contenu du message"
+            aria-describedby={errors.message ? "message-error" : undefined}
+            className={errors.message ? "border-red-500 min-h-[120px]" : "min-h-[120px]"}
           />
+          {errors.message && (
+            <span id="message-error" className="text-red-500 text-sm" role="alert">
+              {errors.message}
+            </span>
+          )}
         </div>
-
-        {submitStatus.message && (
-          <div className={`p-3 rounded ${submitStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-            {submitStatus.message}
-          </div>
-        )}
 
         <Button
           type="submit"
           className="w-full"
-          disabled={isSubmitting}
+          disabled={isSubmitting || cooldown > 0}
+          aria-label={isSubmitting ? "Envoi en cours..." : cooldown > 0 ? `Attendre ${cooldown}s` : "Envoyer le message"}
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting 
+            ? 'Envoi en cours...' 
+            : cooldown > 0 
+              ? `Attendre ${cooldown}s` 
+              : 'Envoyer le message'
+          }
         </Button>
       </form>
     </Card>
@@ -188,15 +321,32 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold">Contact</h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              N&apos;hésitez pas à me contacter pour discuter de vos projets.
+            <h1 className="text-4xl font-bold">Contactez-moi</h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+              Discutons de vos projets DevOps, développement web et sécurité numérique. 
+              Je suis disponible pour des collaborations, missions freelance ou consultations techniques.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <ContactForm />
-            <ContactInfo />
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <ContactForm />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2"
+            >
+              <ContactInfo />
+            </motion.div>
           </div>
         </div>
       </section>

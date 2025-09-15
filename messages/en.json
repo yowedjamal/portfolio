@@ -1,0 +1,80 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "toggleTheme": "Toggle theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "title": "Djamal GANI",
+    "subtitle": "DevOps Expert & Full-Stack Developer",
+    "description": "Specialized in cloud infrastructure, automation and modern web development",
+    "cta": {
+      "viewProjects": "View my projects",
+      "contact": "Contact me"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "DevOps expert passionate about technological innovation",
+    "description": "Full-stack developer with 3+ years of experience in Laravel, Spring Boot, Django, Angular, Next.js and Flutter. I transform your ideas into high-performance and scalable applications.",
+    "experience": "Experience",
+    "projects": "Delivered Projects",
+    "technologies": "Technologies",
+    "skills": {
+      "devops": "DevOps & Cloud",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile"
+    }
+  },
+  "projects": {
+    "title": "Project Portfolio",
+    "subtitle": "Discover my achievements in web development, DevOps and digital security",
+    "description": "Each project reflects my technical expertise and passion for digital innovation, ranging from e-commerce platforms to cloud infrastructure solutions.",
+    "badges": {
+      "delivered": "8+ Delivered Projects",
+      "technologies": "Modern Technologies",
+      "solutions": "Innovative Solutions"
+    },
+    "viewDemo": "View demo",
+    "viewCode": "View code"
+  },
+  "contact": {
+    "title": "Contact me",
+    "subtitle": "Let's discuss your DevOps, web development and digital security projects",
+    "description": "I am available for collaborations, freelance missions or technical consultations.",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "wait": "Wait {seconds}s",
+      "success": "Message sent successfully!",
+      "error": "An unexpected error occurred"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

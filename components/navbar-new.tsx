@@ -7,17 +7,20 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
+import { LanguageSelector } from "./language-selector"
+import { useTranslations } from "@/hooks/useTranslations"
 
 const navigation = [
-	{ name: "Home", href: "/", icon: Home },
-	{ name: "About", href: "/about", icon: User },
-	{ name: "Projects", href: "/projects", icon: FolderOpen },
-	{ name: "Contact", href: "/contact", icon: MessageSquare },
+	{ name: "navbar.home", href: "/", icon: Home },
+	{ name: "navbar.about", href: "/about", icon: User },
+	{ name: "navbar.projects", href: "/projects", icon: FolderOpen },
+	{ name: "navbar.contact", href: "/contact", icon: MessageSquare },
 ]
 
 export function Navbar() {
 	const [isOpen, setIsOpen] = React.useState(false)
 	const { theme, setTheme } = useTheme()
+	const { t, locale } = useTranslations()
 
 	return (
 		<>
@@ -54,7 +57,7 @@ export function Navbar() {
 							"hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]",
 							isOpen && "rotate-90"
 						)}
-						aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+						aria-label={isOpen ? t("navbar.closeMenu") : t("navbar.openMenu")}
 						aria-expanded={isOpen}
 					>
 						{/* Simple Hamburger Menu */}
@@ -141,13 +144,23 @@ export function Navbar() {
 												"focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
 												"group"
 											)}
-											aria-label={`Naviguer vers ${item.name}`}
+											aria-label={`Naviguer vers ${t(item.name)}`}
 										>
 											<item.icon className="w-5 h-5 transition-transform group-hover:scale-110" />
-											<span className="font-medium">{item.name}</span>
+											<span className="font-medium">{t(item.name)}</span>
 										</Link>
 									</motion.div>
 								))}
+
+								{/* Language Selector */}
+								<motion.div
+									initial={{ opacity: 0, x: -20 }}
+									animate={{ opacity: 1, x: 0 }}
+									transition={{ delay: (navigation.length + 1) * 0.1, duration: 0.3 }}
+									className="pt-2"
+								>
+									<LanguageSelector currentLocale={locale} />
+								</motion.div>
 
 								{/* Theme Toggle in Menu */}
 								<motion.div
@@ -177,7 +190,7 @@ export function Navbar() {
 											<Moon className="absolute inset-0 w-5 h-5 rotate-90 scale-0 transition-all duration-300 dark:rotate-0 dark:scale-100" />
 										</div>
 										<span className="font-medium">
-											{theme === "dark" ? "Mode clair" : "Mode sombre"}
+											{theme === "dark" ? t("navbar.lightMode") : t("navbar.darkMode")}
 										</span>
 									</Button>
 								</motion.div>
